@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package logs;
+
+option go_package = "/logs";
+
+message VersionRequest {}
+message VersionResponse {
+  string version = 1;
+}
+
+message Log {
+  string name = 1;
+  string type = 2;
+  string data = 3;
+}
+
+message LogRequest {
+  Log logEntry = 1;
+}
+
+message LogResponse {
+  string result = 1;
+}
+
+service LogService {
+  rpc GetVersionString(VersionRequest) returns(VersionResponse);
+  rpc WriteLog(LogRequest) returns (LogResponse);
+}

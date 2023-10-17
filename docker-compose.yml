@@ -1,0 +1,15 @@
+version: "3"
+
+volumes:
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  postgres_data:
+    driver: local
+  mongo_data:
+    driver: local
+
+networks:
+  shared:
+    driver: bridge
